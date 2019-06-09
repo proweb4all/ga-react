@@ -12,10 +12,12 @@ const sponsors = {
     rus: ['RusAuto', 'SBO']
 };
 
-const calcCash = (total = 0, everyCash = []) => everyCash.reduce((total, item) => total + item, total)
+const calcCash = (own, everyCash) => {
+    let total = own || 0;
+    return everyCash.reduce((total, item) => total + item, total)
+}
 
 const money = calcCash(null, sponsors.cash);
-console.log(money);
 
 const makeBusiness = (...[owner, director, cash, emp]) => {
     director = director || 'Victor';
