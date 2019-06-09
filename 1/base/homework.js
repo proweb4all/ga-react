@@ -12,17 +12,17 @@ const sponsors = {
     rus: ['RusAuto', 'SBO']
 };
 
-const calcCash = (total = 0, everyCash = []) => everyCash.reduce((total, item) => total + item);
+const calcCash = (total = 0, everyCash = []) => everyCash.reduce((total, item) => total + item, total)
 
 const money = calcCash(null, sponsors.cash);
+console.log(money);
 
-//function makeBusiness({owner, director = 'Victor', cash, emp}) {
-const makeBusiness = ({owner, director = 'Victor', cash, emp}) => {
+const makeBusiness = (...[owner, director, cash, emp]) => {
+    director = director || 'Victor';
     const sumSponsors = [...sponsors.eu, ...sponsors.rus, 'unexpected sponsor'];
     console.log(`We have a business. Owner: ${owner}, director: ${director}. Our budget: ${cash}. And our employers: ${emp}`);
     console.log('And we have a sponsors: ');
-//    console.log.apply(null, sumSponsors);
-    console.log(...sumSponsors);
+    console.log.apply(null, sumSponsors);
     console.log(`Note. Be careful with ${sponsors.eu[0]}. It's a huge risk.`);
 }
 
