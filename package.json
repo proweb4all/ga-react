@@ -5,10 +5,10 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "babel": "npx babel src --out-dir src/babel",
-    "webpack": "npx webpack"
-
+    "babel": "babel src --out-dir babel",
+    "webpack": "webpack",
+    "build": "babel src --out-dir babel && webpack",
+    "watch": "babel src --out-dir babel -w && webpack -w"
   },
   "repository": {
     "type": "git",

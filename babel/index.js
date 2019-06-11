@@ -60,6 +60,5 @@ function () {
   return MakeBusiness;
 }();
 
-;
 var makeBusiness = new MakeBusiness('Sam', null, _sponsors.money, _employers.default);
 makeBusiness.outputInfo();

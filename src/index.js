@@ -15,7 +15,7 @@ class MakeBusiness {
         console.log.apply(null, sumSponsors);
         console.log(`Note. Be careful with ${sponsors.eu[0]}. It's a huge risk.`);
     }
-};
+}
 
 const makeBusiness = new MakeBusiness('Sam', null, money, employersNames);
 makeBusiness.outputInfo();
