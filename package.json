@@ -8,7 +8,7 @@
     "babel": "babel src --out-dir babel",
     "webpack": "webpack",
     "build": "babel src --out-dir babel && webpack",
-    "watch": "babel src --out-dir babel -w && webpack -w"
+    "watch": "concurrently \"babel src --out-dir babel -w\" \"webpack -w\""
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,7 @@
     "webpack-cli": "^3.3.4"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.4.4"
+    "@babel/polyfill": "^7.4.4",
+    "concurrently": "^4.1.0"
   }
 }
