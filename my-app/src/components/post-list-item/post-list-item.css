@@ -1,5 +1,9 @@
 .app-list-item {
   font-size: 1.25rem;
+  padding: 10px 12px 0;
+  margin-bottom: 15px;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
 }
 
 .app-list-item button {
@@ -51,4 +55,10 @@
 
 .app-list-item.important .btn-star {
     color: #aeaeae;
+}
+
+.item-date{
+  font-size: 12px;
+  line-height: 1;
+  margin: 0;
 }
