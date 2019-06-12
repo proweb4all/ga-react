@@ -1,9 +1,9 @@
 .app-list-item {
   font-size: 1.25rem;
-  padding: 10px 12px 0;
+  /* padding: 10px 12px 0;
   margin-bottom: 15px;
   border: 1px solid #ced4da;
-  border-radius: .25rem;
+  border-radius: .25rem; */
 }
 
 .app-list-item button {
