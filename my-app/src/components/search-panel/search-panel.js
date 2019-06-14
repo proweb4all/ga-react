@@ -9,9 +9,6 @@ const SearchPanel = () => {
             placeholder='Поиск по записям'
             className='search-input'>
         </Input>
-        // <input className='form-control search-input'
-        //        type='text'
-        //        placeholder='Поиск по записям' />
     )
 }
 
