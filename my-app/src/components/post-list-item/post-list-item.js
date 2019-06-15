@@ -18,7 +18,7 @@ const PostListItem = ({ label,
   }
   return (
     <div className={classNames}>
-      <div className="app-list-item-label" onClick={onToggleLiked}>
+      <div className="app-list-item-label">  {/* onClick={onToggleLiked} */}
         <p className="item-date">{postDate}</p>
         <p>{label}</p>
       </div>
@@ -27,17 +27,26 @@ const PostListItem = ({ label,
           type="button"
           className="btn-star btn-sm btn"
           onClick={onToggleImportant}
+          title='Важно'
         >
           <i className="fa fa-star" />
         </button>
         <button
           type="button"
+          className="btn-like btn-sm btn"
+          onClick={onToggleLiked}
+          title='Нравится'
+        >
+          <i className="fa fa-heart" />
+        </button>
+        <button
+          type="button"
           className="btn-trash btn-sm btn"
           onClick={onDelete}
+          title='Удалить'
         >
           <i className="fa fa-trash-o" />
         </button>
-        <i className="fa fa-heart" />
       </div>
     </div>
   );

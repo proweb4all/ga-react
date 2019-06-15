@@ -13,7 +13,9 @@ export default class App extends Component {
       { id: 1, label: 'Всем привет! Это первый пост.', postDate: '10.06.2019', important: true, like: false },
       { id: 2, label: 'Всем привет! А это второй пост.', postDate: '11.06.2019', important: false, like: false },
       { id: 3, label: 'Хаюшки! Продолжаем изучать React.js!', postDate: '12.06.2019', important: false, like: true }
-    ]
+    ],
+    term: '',
+    filter: 'all'
   }
   
   onDeleteItem = (id) => {
@@ -68,21 +70,55 @@ export default class App extends Component {
   //   })
   // }
 
+  searchPost = (items, term) => {
+    if  (term.length === 0) {return items}
+    return items.filter((item) => {return item.label.indexOf(term) > -1})
+  }
+
+  onUpdateSearch = (term) => {
+    this.setState({term})
+  }
+
+  filterPost = (items, filter) => {
+    switch (filter) {
+      case 'like':
+        return items.filter(item => item.like)
+          // break;
+      case 'important':
+        return items.filter(item => item.important)
+          // break;
+      case 'star':
+        return items
+          // break;
+      default:
+        return items
+    }
+  }
+
+  onFilterSelect = (filter) => {
+    this.setState({filter})
+  }
+
   render() {
-    const {data} = this.state;
+    const {data, term, filter} = this.state;
+    const important = data.filter(item => item.important).length;
     const liked = data.filter(item => item.like).length;
     const allPosts = data.length;
+    const visiblePosts = this.filterPost(this.searchPost(data, term), filter);
     return (
       <div className='app container'>
         <AppHeader 
+          important={important}
           liked={liked}
           allPosts={allPosts} />
         <div className="search-panel d-flex">
-          <SearchPanel />
-          <PostStatusFilter />
+          <SearchPanel onUpdateSearch={this.onUpdateSearch}/>
+          <PostStatusFilter 
+            filter={filter}
+            onFilterSelect={this.onFilterSelect}/>
         </div>
         <PostList
-          posts={data}
+          posts={visiblePosts}
           onDelete={this.onDeleteItem}
           onToggleImportant={this.onToggleImportant}
           onToggleLiked={this.onToggleLiked} />

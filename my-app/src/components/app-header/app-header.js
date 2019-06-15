@@ -1,11 +1,14 @@
 import React from 'react';
 import './app-header.scss';
 
-const AppHeader = ({ liked, allPosts }) => {
+const AppHeader = ({ important, liked, allPosts }) => {
     return (
         <header className='app-header d-flex'>
-            <h1>Юрий Таратов</h1>
-            <h2>{allPosts} записей, из них понравилось {liked}</h2>
+            <div className='user'>
+                <img src='ya.jpeg' alt='Юрий Таратов'/>
+                <h1>Юрий Таратов</h1>
+            </div>
+            <p>Важные: {important} | Понравились: {liked} | Все: {allPosts}</p>
         </header>
     )
 }

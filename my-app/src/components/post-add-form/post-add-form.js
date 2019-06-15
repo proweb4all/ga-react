@@ -31,7 +31,7 @@ export default class PostAddForm extends Component {
                 />
                 <Button 
                     type='submit'
-                    outline color="secondary">
+                    outline color="info">
                     Добавить
                 </Button>
             </form>
