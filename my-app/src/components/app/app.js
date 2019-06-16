@@ -27,10 +27,13 @@ export default class App extends Component {
   }
   
   onAddItem = (body) => {
+    if (body.length == 0) {
+      return alert('Введите текст сообщения!');
+    }
     const newItem = {
       id: idGenerator(),
       label: body,
-      postDate: '14.06.2019',
+      postDate: this.todayDate(), //'14.06.2019',
       important: false,
       like: false
     };
@@ -40,6 +43,16 @@ export default class App extends Component {
     });
   }
   
+  todayDate = () => {
+    const date = new Date();
+    let dd = date.getDate();
+    let mm = date.getMonth() + 1;
+    let yy = date.getFullYear();
+    if (dd < 10) dd = '0' + dd;
+    if (mm < 10) mm = '0' + mm;
+    return `${dd}.${mm}.${yy}`;
+  }
+
   toggleParam = (id, param) => {
     this.setState(({data}) => {
       const index = data.findIndex(elem => elem.id === id);
@@ -72,7 +85,7 @@ export default class App extends Component {
 
   searchPost = (items, term) => {
     if  (term.length === 0) {return items}
-    return items.filter((item) => {return item.label.indexOf(term) > -1})
+    return items.filter((item) => {return item.label.toLowerCase().indexOf(term.toLowerCase()) > -1})
   }
 
   onUpdateSearch = (term) => {

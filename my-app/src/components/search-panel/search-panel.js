@@ -16,7 +16,7 @@ export default class SearchPanel extends Component {
         return (
             <Input
                 type='text'
-                placeholder='Поиск по записям'
+                placeholder='Поиск по сообщениям'
                 className='search-input'
                 onChange={this.onUpdateSearch}>
             </Input>
